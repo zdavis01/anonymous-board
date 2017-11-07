@@ -14,6 +14,8 @@ class App extends Component {
     this.handleUnVote = this.handleUnVote.bind(this)
     this.delete = this.delete.bind(this)
     this.publish = this.publish.bind(this)
+    this.orderByLikes = this.orderByLikes.bind(this)
+    this.orderByDate = this.orderByDate.bind(this)
 
     this.state = {
       messages: [
@@ -30,7 +32,6 @@ class App extends Component {
     this.setState({
       messages: this.state.messages
     })
-    this.orderByLikes();
   }
 
   handleUnVote(id){
@@ -42,7 +43,6 @@ class App extends Component {
     this.setState({
       messages: this.state.messages
     })
-    this.orderChron();
   }
 
   delete(id){
@@ -61,7 +61,6 @@ class App extends Component {
 
   publish(msg){
     var newMessages = this.state.messages.concat({id: uuid.v4(),text: msg, votes: 0, stamp: Date.now()})
-
     this.setState({
       messages: newMessages
     })
@@ -74,7 +73,7 @@ class App extends Component {
 
   }
 
-  orderChron(){
+  orderByDate(){
     this.setState({
       messages: this.state.messages.sort(function(a,b) { return a.stamp - b.stamp})
     })
@@ -86,7 +85,14 @@ class App extends Component {
       <div className="App">
         <Header title={"Zach's Message Board"} />
         <MessageEditor publish = {this.publish}/>
-        <MessageBoard messages = {this.state.messages} handleVote ={this.handleVote} handleUnVote = {this.handleUnVote} delete={this.delete} />
+        <MessageBoard
+          messages = {this.state.messages}
+          handleVote ={this.handleVote}
+          handleUnVote = {this.handleUnVote}
+          delete={this.delete}
+          orderByLikes={this.orderByLikes}
+          orderByDate={this.orderByDate}
+        />
       </div>
     );
   }
