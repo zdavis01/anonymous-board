@@ -11,14 +11,14 @@ class Message extends Component {
     return (
       <div className="msg-style">
         {this.props.text}
-      <Button
-        vote= {this.props.votes}
-        onVote={this.props.handleVoteLike}
-        onUnVote={this.props.handleVoteDislike}
-        remove={this.props.handleClickDelete}
-        id={this.props.id}
-      />
-    </div>
+        <Button
+          vote= {this.props.votes}
+          onVote={this.props.handleVoteLike}
+          onUnVote={this.props.handleVoteDislike}
+          remove={this.props.handleClickDelete}
+          id={this.props.id}
+        />
+      </div>
     )
   }
 }
