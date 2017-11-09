@@ -11,7 +11,7 @@ class Header extends Component{
       <nav class="navbar">
         <div class="container-fluid">
           <div class="navbar-header ">
-            <h1>{this.props.title}</h1>
+            <p>{this.props.title}</p>
           </div>
         </div>
     </nav>

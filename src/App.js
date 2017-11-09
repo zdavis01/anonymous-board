@@ -8,6 +8,7 @@ import MessageEditor from './MessageEditor'
 import MessageBoard from './MessageBoard'
 import Fuzzy from './Fuzzy'
 import Fuse from 'fuse.js'
+import SearchResults from './SearchResults'
 
 class App extends Component {
   constructor(props) {
@@ -101,6 +102,14 @@ class App extends Component {
       <div className="App">
         <Header title={"Zach's Message Board"} />
         <MessageEditor publish = {this.publish}/>
+        <SearchResults
+          results = {this.state.results}
+          handleVote ={this.handleVote}
+          handleUnVote = {this.handleUnVote}
+          delete={this.delete}
+          orderByLikes={this.orderByLikes}
+          orderByDate={this.orderByDate}
+        />
         <MessageBoard
           createResults ={this.createResults}
           messages = {this.state.messages}
