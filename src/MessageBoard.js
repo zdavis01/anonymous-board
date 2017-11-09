@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Message from './Message.js'
+import './message-board.css'
 
 class MessageBoard extends Component{
   constructor(props) {
@@ -20,10 +21,12 @@ render(){
     return(
     <div class="panel-group">
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div>
           Message Board
+          <div className="order" >
           <button id="submit" class="btn btn-default" onClick={this.handleClickOrderDate}> Order by Date </button>
           <button id="submit" class="btn btn-default" onClick={this.handleClickOrderLike}> Order by Likes </button>
+        </div>
         </div>
         <div class="panel-body">
           <ul class="message-board">
